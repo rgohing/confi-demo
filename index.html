@@ -135,12 +135,35 @@ body {
     margin-bottom: 48px;
 }
 
+.landing-logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 24px;
+    border: 4px solid var(--primary-color);
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: 0 0 20px rgba(0, 120, 212, 0.4), 0 0 40px rgba(0, 120, 212, 0.2);
+    animation: logoGlow 3s ease-in-out infinite;
+    background: linear-gradient(145deg, #ffffff, #f0f8ff);
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 120, 212, 0.4), 0 0 40px rgba(0, 120, 212, 0.2);
+        border-color: var(--primary-color);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 120, 212, 0.6), 0 0 60px rgba(0, 120, 212, 0.3), 0 0 80px rgba(80, 230, 255, 0.2);
+        border-color: var(--secondary-color);
+    }
+}
+
 /* Mode Selection */
 .mode-selection {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -148,6 +171,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     padding: 32px;
     background: var(--surface);
     border: 3px solid var(--border-color);
@@ -161,6 +185,32 @@ body {
     border-color: var(--primary-color);
     box-shadow: var(--shadow-hover);
     transform: translateY(-4px);
+}
+
+/* Landing page specific button sizing */
+#landingPage .mode-selection {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#landingPage .mode-card {
+    min-height: 250px;
+    max-height: 250px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* Choice screen specific button sizing */
+#choiceScreen .mode-selection {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+    gap: 32px;
+    padding: 0 40px;
+}
+
+#choiceScreen .mode-card {
+    width: 100%;
+    min-height: 400px;
+    max-height: 400px;
 }
 
 .mode-icon {
@@ -908,6 +958,7 @@ body {
             <!-- Landing Page -->
             <div id="landingPage" class="welcome-screen">
                 <div class="welcome-content">
+                    <img src="confi.png" alt="CDS Logo" class="landing-logo">
                     <h1>Configuration Deployment Service</h1>
                     <h2>AI Intelligence Platform</h2>
                     <p class="tagline">Automated mailbox monitoring, log analysis, and documentation assistance</p>
@@ -916,7 +967,7 @@ body {
                         <button class="mode-card" id="stakeholderBtn">
                             <div class="mode-icon">👥</div>
                             <div class="mode-info">
-                                <h3>CDS Team|Stakeholder|Configurator</h3>
+                                <h4>CDS Team|Stakeholder|Configurator</h4>
                                 <p>Direct access to Documentation Intelligence</p>
                             </div>
                         </button>
@@ -924,7 +975,7 @@ body {
                         <button class="mode-card" id="cdsTeamBtn">
                             <div class="mode-icon">🛠️</div>
                             <div class="mode-info">
-                                <h3>CDS Team</h3>
+                                <h4>CDS Team</h4>
                                 <p>Choose between Mailbox or Documentation Intelligence</p>
                             </div>
                         </button>
